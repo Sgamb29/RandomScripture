@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Random Gospel Passage</title>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html">Random Buddhist Scripture</a>
+        <a href="proverbs.html">Random Proverbs</a>
+        <h1>Random Gospel Passage</h1>
+        <p class="output" id="output"></p>
+        <div class="buttonContainer">
+            <button class="mainButtons" onclick="getRandomPassage()">Get Random Passage</button>
+            <button class="mainButtons" id="lastPageButton" onclick="lastPage()" hidden>Last Page</button>
+            <button class="mainButtons" id="nextPageButton" onclick="nextPage()" hidden>Next Page</button>
+        </div>
+    </div>
+
+    <script src="scriptGospels.js"></script>
+</body>
+</html>

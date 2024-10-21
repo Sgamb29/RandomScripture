@@ -1,0 +1,43 @@
+
+html, body {
+    height: 100%;
+    margin: 0px;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    min-height: 100%;
+    background: linear-gradient(45deg, lightblue, white, lightblue);
+    padding: 10px;
+
+}
+
+.buttonContainer {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.mainButtons {
+    font-size: larger;
+    background-color: aqua;
+    border: 1px solid black;
+    border-radius: 25%;
+    margin: 5px;
+}
+
+.output {
+    padding: 10px;
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 10%;
+    font-size: larger;
+    text-align: start;
+}
+
+a {
+    margin: 3px;
+}
