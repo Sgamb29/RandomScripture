@@ -4,33 +4,26 @@ let currentProverbsIndex = 0;
 function getRandomPassage() {
     const output = document.getElementById("output");
     const indexToGet = getRandomInt(proverbsMax).toString();
-    currentProverbsIndex = indexToGet;
+    currentProverbsIndex = parseInt(indexToGet);
     output.innerText = proverbs[indexToGet];
-    if (indexToGet !== proverbsMax.toString()) {
-        document.getElementById("nextPageButton").hidden = false;
-    } else {
-        document.getElementById("nextPageButton").hidden = true;
-
-    }
-
-    document.getElementById("lastPageButton").hidden = indexToGet !== proverbsMin.toString() ? false : true;
-
 }
 
 function nextPage() {
-    if (!document.getElementById("nextPageButton").hidden) {
-        const next = parseInt(currentProverbsIndex) + 1;
-        currentProverbsIndex = next;
-        output.innerText = proverbs[next.toString()];
+    if (currentProverbsIndex === proverbsMax) {
+        return;
     }
+    const next = parseInt(currentProverbsIndex) + 1;
+    currentProverbsIndex = next;
+    output.innerText = proverbs[next.toString()];
 }
 
 function lastPage() {
-    if (!document.getElementById("lastPageButton").hidden) {
-        const last = parseInt(currentProverbsIndex) - 1;
-        currentProverbsIndex = last;
-        output.innerText = proverbs[last.toString()];
+    if (currentProverbsIndex === proverbsMin) {
+        return;
     }
+    const last = parseInt(currentProverbsIndex) - 1;
+    currentProverbsIndex = last;
+    output.innerText = proverbs[last.toString()];
 }
 
 

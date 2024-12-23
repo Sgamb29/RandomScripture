@@ -4,33 +4,26 @@ let currentGospelsIndex = 0;
 function getRandomPassage() {
     const output = document.getElementById("output");
     const indexToGet = getRandomInt(gospelsMax).toString();
-    currentGospelsIndex = indexToGet;
+    currentGospelsIndex = parseInt(indexToGet);
     output.innerText = gospels[indexToGet];
-    if (indexToGet !== gospelsMax.toString()) {
-        document.getElementById("nextPageButton").hidden = false;
-    } else {
-        document.getElementById("nextPageButton").hidden = true;
-
-    }
-
-    document.getElementById("lastPageButton").hidden = indexToGet !== gospelsMin.toString() ? false : true;
-
 }
 
 function nextPage() {
-    if (!document.getElementById("nextPageButton").hidden) {
-        const next = parseInt(currentGospelsIndex) + 1;
-        currentGospelsIndex = next;
-        output.innerText = gospels[next.toString()];
+    if (currentGospelsIndex === gospelsMax) {
+        return;
     }
+    const next = parseInt(currentGospelsIndex) + 1;
+    currentGospelsIndex = next;
+    output.innerText = gospels[next.toString()];
 }
 
 function lastPage() {
-    if (!document.getElementById("lastPageButton").hidden) {
-        const last = parseInt(currentGospelsIndex) - 1;
-        currentGospelsIndex = last;
-        output.innerText = gospels[last.toString()];
+    if (currentGospelsIndex === gospelsMin) {
+        return;
     }
+    const last = parseInt(currentGospelsIndex) - 1;
+    currentGospelsIndex = last;
+    output.innerText = gospels[last.toString()];
 }
 
 

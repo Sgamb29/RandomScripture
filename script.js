@@ -3,32 +3,27 @@ let currentDhammaIndex = 0;
 
 function getRandomPassage() {
     const output = document.getElementById("output");
-    const indexToGet = getRandomInt(dhammaMax).toString();
-    currentDhammaIndex = indexToGet;
+    let indexToGet = getRandomInt(dhammaMax).toString();
+    currentDhammaIndex = parseInt(indexToGet);
     output.innerText = dhammapada[dhammaKey][indexToGet];
-    if (indexToGet !== dhammaMax.toString()) {
-        document.getElementById("nextPageButton").hidden = false;
-    } else {
-        document.getElementById("nextPageButton").hidden = true;
-
-    }
-    document.getElementById("lastPageButton").hidden = indexToGet !== dhammaMin.toString() ? false : true;
 }
 
 function nextPage() {
-    if (!document.getElementById("nextPageButton").hidden) {
-        const next = parseInt(currentDhammaIndex) + 1;
-        currentDhammaIndex = next;
-        output.innerText = dhammapada[dhammaKey][next.toString()];
+    if (currentDhammaIndex === dhammaMax) {
+        return;
     }
+    const next = parseInt(currentDhammaIndex) + 1;
+    currentDhammaIndex = next;
+    output.innerText = dhammapada[dhammaKey][next.toString()];
 }
 
 function lastPage() {
-    if (!document.getElementById("lastPageButton").hidden) {
-        const last = parseInt(currentDhammaIndex) - 1;
-        currentDhammaIndex = last;
-        output.innerText = dhammapada[dhammaKey][last.toString()];
+    if (currentDhammaIndex === dhammaMin) {
+        return;
     }
+    const last = parseInt(currentDhammaIndex) - 1;
+    currentDhammaIndex = last;
+    output.innerText = dhammapada[dhammaKey][last.toString()];
 }
 
 
